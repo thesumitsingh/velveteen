@@ -96,7 +96,7 @@ async function getJson(url) {
 var total=0;
 var count =0;
 async function main() {
-    document.getElementById("memeList").innerHTML="<h1><br><br>Loading...</h1>";
+    document.getElementById("memeList").innerHTML="<h1><br><br>Loading...</h1><br>If it takes too long, please refresh this page or contact the admin using link below.";
     jsondata = await getJson(apiUrl);
     console.log("main has been called");
     console.log(jsondata);
@@ -122,11 +122,12 @@ if (shown==1){
 function nextButtonClick(){
     document.getElementById("demodiv"+shown).style.cssText="display:none;overflow: hidden;pointer-events: none;";
     shown++;
+    if (shown>count){
+        location.reload();
+        return;
+    }
     document.getElementById("demodiv"+shown).style.cssText="display:block;overflow: hidden;pointer-events: none;";
     console.log(shown);
-    if (shown>=count){
-        location.reload();
-    }
 }
 
 
