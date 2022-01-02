@@ -1,0 +1,190 @@
+
+  
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="theme-color" content="#1e73be" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    
+<center>
+    
+   <br><h2 style="align-content: center;font-family: 'Sacramento', cursive;color: #1e73be;" >_____ Velveteen _____</h2><hr>
+<!-- <div id="demodiv0" class="embedparentclass" style="overflow: hidden;pointer-events: none;">
+<div class="embedtopblocker" style="color:#fff;height:55px;position:absolute;z-index:20;background-color:#fff;width:100%;"><hr color="green"></div>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CS-V3_wJNRM/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="z-index:5;overflow:hidden;background:#FFF; border:0; border-radius:30px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px;; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">Loading...</blockquote>
+<div class="embedbottomblocker" style="margin-top: -164px;height: 164px; color:#fff;position:absolute;z-index:20;background-color:#fff;width:99%;"></div>
+</div> -->
+
+
+<div id="memeList"></div>
+
+
+<!-- <button type="button" style="left:1%;right: 1%;width:98%;position: fixed;bottom: 50px;z-index: 30;" class="btn btn-success .btn-block" onclick=''>Send this to someone</button> -->
+
+<!-- <button type="button" style="left:1%;right: 1%;width:98%;position: fixed;bottom: 5px;z-index: 30;" class="btn btn-success .btn-block" onclick='document.getElementById("demodiv1").style.cssText="display:none;";document.getElementById("demodiv2").style.cssText="display:block;";'>Next-></button> -->
+
+<button type="button" style="left:1%;right: 1%;width:98%;position: fixed;bottom: 15px;z-index: 30;height: 65px;" class="btn btn-primary btn-lg btn-block" onclick='nextButtonClick();'>Next-></button>
+
+<br>
+<p style="color: gray;"><a href="https://forms.gle/ituZ7UWhsMtVkZGU7">Click here to Submit content/Contact</a> </p><br><br><br>
+</center>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+
+    
+
+    var jsondata = "",offset=0;
+    let apiUrl = "https://hxgvmajkkzdwqpzugzmc.supabase.co/rest/v1/crash9?select=*&"
+    var shown=1;
+
+
+function getRandomInt() {
+    min = Math.ceil(1);
+    max = Math.floor(8679);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+async function getJson(url) {
+        let n1=getRandomInt();
+        let n2=getRandomInt();
+        let n3=getRandomInt();
+        let n4=getRandomInt();
+        let n5=getRandomInt();
+        let n6=getRandomInt();
+        let n7=getRandomInt();
+        let n8=getRandomInt();
+        let n9=getRandomInt();
+        let n10=getRandomInt();
+        let n11=getRandomInt();
+        let n12=getRandomInt();
+        let n13=getRandomInt();
+        let n14=getRandomInt();
+        let n15=getRandomInt();
+        let n16=getRandomInt();
+        let n17=getRandomInt();
+        let n18=getRandomInt();
+        let n19=getRandomInt();
+        let n20=getRandomInt();
+        let inString="snumber=in.("+n1+","+n2+","+n3+","+n4+","+n5+","+n6+","+n7+","+n8+","+n9+","+n10+","+n11+","+n12+","+n13+","+n14+","+n15+","+n16+","+n17+","+n18+","+n19+","+n20+")";
+        let response = await fetch (apiUrl+inString, {
+            method: "GET",
+            headers: {"Content-type": "application/json;charset=UTF-8", "apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNzMyNjkwMCwiZXhwIjoxOTUyOTAyOTAwfQ.abCfCoAbL2gG2kYcZbbw3NIq57DLtjd_qvBBR1NEzaw"}
+        });
+        console.log("api has been called");
+        let data = await response.text();
+        data=JSON.parse(data);
+        return data;
+
+        // return fetch (apiUrl+inString, {
+        //     method: "GET",
+        //     headers: {"Content-type": "application/json;charset=UTF-8", "apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNzMyNjkwMCwiZXhwIjoxOTUyOTAyOTAwfQ.abCfCoAbL2gG2kYcZbbw3NIq57DLtjd_qvBBR1NEzaw"}
+        // })
+        // .then((response)=>response.json())
+        // .then((responseJson)=>{return responseJson});
+}
+var total=0;
+var count =0;
+async function main() {
+    document.getElementById("memeList").innerHTML="<h1><br><br>Loading...</h1>";
+    jsondata = await getJson(apiUrl);
+    console.log("main has been called");
+    console.log(jsondata);
+    count = Object.keys(jsondata).length;
+
+    // jsondata=JSON.parse(jsondata);
+    var memeHtml="";
+    for (var i=0;i<count;i++){
+        total++;
+        console.log("for loop has run "+ total+" times.")
+        memeHtml+='<div id="demodiv'+total+'" class="embedparentclass" style="display:none;overflow: hidden;pointer-events: none;"><div class="embedtopblocker" style="color:#fff;height:55px;position:absolute;z-index:20;background-color:#fff;width:100%;"></div><blockquote class="instagram-media" data-instgrm-permalink="'+jsondata[i]['postUrl']+'?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="z-index:5;overflow:hidden;background:#FFF; border:0; border-radius:30px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px;; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">Loading...</blockquote>'+'<div class="embedbottomblocker" style="margin-top: -164px;height: 164px; color:#fff;position:absolute;z-index:20;background-color:#fff;width:99%;"></div></div>';
+    }
+    document.getElementById("memeList").innerHTML=memeHtml;
+    if ( typeof window.instgrm !== 'undefined' ) {
+    window.instgrm.Embeds.process();
+}
+if (shown==1){
+    document.getElementById("demodiv"+1).style.cssText="display:block;overflow: hidden;pointer-events: none;";
+}
+
+}
+// document.getElementById("demodiv"+shown).style.cssText="display:block;";
+function nextButtonClick(){
+    document.getElementById("demodiv"+shown).style.cssText="display:none;overflow: hidden;pointer-events: none;";
+    shown++;
+    document.getElementById("demodiv"+shown).style.cssText="display:block;overflow: hidden;pointer-events: none;";
+    console.log(shown);
+    if (shown>=count){
+        location.reload();
+    }
+}
+
+
+main();    
+// nextButtonClick();
+// var delayInMilliseconds = 2000; //1 second
+
+// setTimeout(function() {
+//   //your code to be executed after 1 second
+//   if ( typeof window.instgrm !== 'undefined' ) {
+//     window.instgrm.Embeds.process();
+// }
+
+// }, delayInMilliseconds);
+
+// window.instgrm.Embeds.process()
+
+
+/* I AM NOT USING THIS RIGHT NOW, I AM RYING THE PREVIOUS ONE
+//this function loads a folder - either the root folder or the subfolder
+function loadMemes() {	
+    let url = "https://hxgvmajkkzdwqpzugzmc.supabase.co/rest/v1/crash7?select=*&isSidecar=neq.Video&likeRatio=gt.2&limit=20&offset="
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+  	  var jsondata = JSON.parse(this.responseText);
+		// document.getElementById("divid").innerHTML = myObj.files[2].id;
+		var inner='';
+		document.getElementById('memeList').innerHTML=inner;
+
+        var memeHtml="";
+        for (var i=0;i<5;i++){
+            console.log("for loop has run "+ i+" times.",(jsondata[i]['postUrl']))
+            // printMemeRow()
+        memeHtml+= printMemeRow(jsondata[i]['postUrl'],JSON.stringify(jsondata[i]['query']), JSON.stringify(jsondata[i]['profileUrl']));
+    }
+    document.getElementById("memeList").innerHTML=memeHtml;
+
+  	}	  
+};
+// var memeHtml="";
+
+function printMemeRow(postUrl,posterUrl,username){
+    memerow='<br><br><div class="embedparentclass" style="overflow: hidden;pointer-events: none;"><div class="embedtopblocker" style="color:#fff;height:55px;position:absolute;z-index:1;background-color:#fff;width:90%;"></div><blockquote class="instagram-media" data-instgrm-permalink="'+postUrl+'?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="z-index:-1;position: absolute;top: -63px;overflow:hidden;background:#FFF; border:0; border-radius:30px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px;; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">Loading...</blockquote>'+'<script async src="http://www.instagram.com/embed.js">'+ '<' + '/script><div style="margin-bottom: -170px; "></div></div><br><br>Posted by <a href="'+posterUrl+'">'+username+'</a><hr><br><br>';
+    return memerow;
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.setRequestHeader('apikey','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNzMyNjkwMCwiZXhwIjoxOTUyOTAyOTAwfQ.abCfCoAbL2gG2kYcZbbw3NIq57DLtjd_qvBBR1NEzaw');
+xmlhttp.send();
+};
+loadMemes();
+*/
+
+
+
+</script>
+
+</body>
+</html>
+
+
