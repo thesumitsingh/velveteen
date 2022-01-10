@@ -24,7 +24,7 @@
 <button type="button" style="left:1%;right: 1%;width:98%;position: fixed;bottom: 15px;z-index: 30;height: 65px;" class="btn btn-primary btn-lg btn-block" onclick='nextButtonClick();'>Next-></button>
 
 <br>
-<p style="color: gray;"><a href="https://forms.gle/ituZ7UWhsMtVkZGU7">Please give feedback here/Submit content</a> </p><br><br><br>
+<p style="color: gray;"><a href="https://forms.gle/ituZ7UWhsMtVkZGU7">Click here to Submit content/Contact</a> </p><br><br><br>
 </center>
 
 <script async src="https://www.instagram.com/embed.js"></script>
@@ -96,15 +96,14 @@ async function main() {
         }
         total++;
         console.log("for "+ total+" "+jsondata['snumber'])
-        memeHtml+='<div id="demodiv'+total+'" class="embedparentclass" style="display:none;overflow: hidden;pointer-events: none;"><div class="embedtopblocker" style="color:#fff;height:55px;position:absolute;z-index:20;background-color:#fff;width:100%;"></div><blockquote class="instagram-media" data-instgrm-permalink="'+jsondata[i]['postUrl']+'?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="z-index:5;overflow:hidden;background:#FFF; border:0; border-radius:30px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px;; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">Loading...</blockquote>'+'<div class="embedbottomblocker" style="margin-top: -164px;height: 164px; color:#fff;position:absolute;z-index:20;background-color:#fff;width:99%;"><br><br><button class="btn btn-light" type="button" onclick="location.href=\''+jsondata[i]['postUrl']+'\'";" target="_blank">source</button></div></div>';
-
+        memeHtml+='<div id="demodiv'+total+'" class="embedparentclass" style="display:none;overflow: hidden;pointer-events: none;"><div class="embedtopblocker" style="color:#fff;height:55px;position:absolute;z-index:20;background-color:#fff;width:100%;"></div><blockquote class="instagram-media" data-instgrm-permalink="'+jsondata[i]['postUrl']+'?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="pointer-events:none;z-index:5;overflow:hidden;background:#FFF; border:0; border-radius:30px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px;; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">Loading...</blockquote>'+'<div class="embedbottomblocker" style="margin-top: -164px;height: 164px; color:#fff;position:absolute;z-index:20;background-color:#fff;width:99%;"><br><br><button class="btn btn-light" type="button" onclick="delete_record('+jsondata[i]['snumber']+')";" target="_blank">delete this</button></div></div>';
     }
     document.getElementById("memeList").innerHTML=memeHtml;
     if ( typeof window.instgrm !== 'undefined' ) {
     window.instgrm.Embeds.process();
 }
 if (shown==1){
-    document.getElementById("demodiv"+1).style.cssText="display:block;overflow: hidden;";
+    document.getElementById("demodiv"+1).style.cssText="display:block;overflow: hidden;pointer-events: none;";
 }
 }
 function delete_record(snumber){
